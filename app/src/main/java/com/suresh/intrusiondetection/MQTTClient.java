@@ -16,9 +16,9 @@ import java.util.Date;
 public class MQTTClient {
 
     private static final String TAG = "MQTTClient";
-    private String mqttBroker = "tcp://iot.eclipse.org:1883";
-    private String mqttTopic = "codifythings/intrusiondetection";
-    private String deviceId = "androidClient";
+    private String mqttBroker = "tcp://test.mosquitto.org:1883";
+    private String mqttTopic = "codifythings/lightcontrol";
+    private String deviceId = "androidClient3";
 
     private MainActivity activity = null;
 
@@ -54,6 +54,8 @@ public class MQTTClient {
                 DateFormat df = DateFormat.getDateTimeInstance();
                 String sensorMessage = new String(message.getPayload() + " @ "
                 + df.format(new Date()));
+
+                Log.d("MQTT Client Message",new String(message.getPayload()));
 
                 activity.createNotification("Intrusion Detection System",sensorMessage);
                 activity.updateView(sensorMessage);
