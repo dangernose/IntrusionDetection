@@ -52,8 +52,8 @@ public class MQTTClient {
 
             try{
                 DateFormat df = DateFormat.getDateTimeInstance();
-                String sensorMessage = new String(message.getPayload() + " @ "
-                + df.format(new Date()));
+                String sensorMessage = new String(message.getPayload()) + " @ "
+                + df.format(new Date());
 
                 Log.d("MQTT Client Message",new String(message.getPayload()));
 
